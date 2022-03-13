@@ -1,5 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe "merchants/index.html.slim", type: :view do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe "admins/merchants/index", type: :view do
+  before(:each) do
+    assign(:admins_merchants, [
+      Admins::Merchant.create!(),
+      Admins::Merchant.create!()
+    ])
+  end
+
+  it "renders a list of admins/merchants" do
+    render
+  end
 end

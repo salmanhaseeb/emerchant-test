@@ -1,5 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe "merchants/show.html.slim", type: :view do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe "admins/merchants/show", type: :view do
+  before(:each) do
+    @admins_merchant = assign(:admins_merchant, Admins::Merchant.create!())
+  end
+
+  it "renders attributes in <p>" do
+    render
+  end
 end
