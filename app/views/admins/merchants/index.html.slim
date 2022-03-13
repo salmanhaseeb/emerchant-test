@@ -1,0 +1,19 @@
+h1 Listing admins_merchants
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @admins_merchants.each do |admins_merchant|
+      tr
+        td = link_to 'Show', admins_merchant_path(admins_merchant)
+        td = link_to 'Edit', edit_admins_merchant_path(admins_merchant)
+        td = link_to 'Destroy', admins_merchant_path(admins_merchant), data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Merchant', new_admins_merchant_path

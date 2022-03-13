@@ -1,0 +1,5 @@
+Name,Email,Password,Description,Status
+John Carey,john_carey@gmail.com,123123,Merchant Number 1,active
+Michael Holding,michael_holding@gmail.com,123123,Merchant Number 2,active
+Abdul Karim,abdul_karim@gmail.com,123123,Merchant Number 3,active
+Pat Cummins,pat_cummins@gmail.com,123123,Merchant Number 4,inactive
