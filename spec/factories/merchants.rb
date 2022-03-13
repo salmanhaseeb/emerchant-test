@@ -3,6 +3,7 @@ FactoryBot.define do
     name { Faker::Name.name }
     email { Faker::Internet.unique.email }
     description { "A randome description" }
+    password { "123123" }
     status { "active" }
     trait :active do
       status { "active" }

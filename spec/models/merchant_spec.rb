@@ -12,6 +12,11 @@ RSpec.describe Merchant, :type => :model do
     expect(merchant).to_not be_valid
   end
 
+  it "is not valid without a password" do
+    merchant = Merchant.new(email: Faker::Internet.email, name: Faker::Name.name, status: 'active')
+    expect(merchant).to_not be_valid
+  end
+
   it "is not valid without an email" do
     merchant = Merchant.new(name: Faker::Name.name, status: 'active')
     expect(merchant).to_not be_valid
