@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_13_102745) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_14_214323) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -52,12 +52,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_13_102745) do
     t.datetime "updated_at", null: false
     t.string "type"
     t.uuid "authorize_transaction_id"
-    t.uuid "refund_transaction_id"
-    t.uuid "reversal_transaction_id"
+    t.uuid "charge_transaction_id"
     t.index ["authorize_transaction_id"], name: "index_transactions_on_authorize_transaction_id"
+    t.index ["charge_transaction_id"], name: "index_transactions_on_charge_transaction_id"
     t.index ["merchant_id"], name: "index_transactions_on_merchant_id"
-    t.index ["refund_transaction_id"], name: "index_transactions_on_refund_transaction_id"
-    t.index ["reversal_transaction_id"], name: "index_transactions_on_reversal_transaction_id"
   end
 
   add_foreign_key "transactions", "merchants"
