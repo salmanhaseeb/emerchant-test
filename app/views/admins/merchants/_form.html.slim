@@ -1,9 +1,22 @@
-= form_for @admins_merchant do |f|
-  - if @admins_merchant.errors.any?
+= form_with model: @merchant do |f|
+  - if @merchant.errors.any?
     #error_explanation
-      h2 = "#{pluralize(@admins_merchant.errors.count, 'error')} prohibited this admins_merchant from being saved:"
+      h2 = "#{pluralize(@merchant.errors.count, 'error')} prohibited this admins_merchant from being saved:"
       ul
-        - @admins_merchant.errors.full_messages.each do |message|
+        - @merchant.errors.full_messages.each do |message|
           li = message
 
-  .actions = f.submit
+  div.field
+    = f.label :name
+    br
+    = f.text_field :name
+  div.field
+    = f.label :description
+    br
+    = f.text_area :description
+  div.field
+    = f.label :status
+    br
+    = f.select :status, [['Active', 'active'], ['Inactive', 'inactive']]
+  div.actions
+      = f.submit
