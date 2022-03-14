@@ -6,22 +6,22 @@ FactoryBot.define do
     customer_email { authorize_transaction.customer_email }
     customer_phone { authorize_transaction.customer_phone }
     status { authorize_transaction.status }
-    type { "ChargeTransaction" }
+    type { 'ChargeTransaction' }
 
     trait :approved do
-      status { "approved" }
+      status { 'approved' }
     end
 
     trait :reversed do
-      status { "reversed" }
+      status { 'reversed' }
     end
 
     trait :refunded do
-      status { "refunded" }
+      status { 'refunded' }
     end
 
     trait :error do
-      status { "error" }
+      status { 'error' }
     end
   end
 end

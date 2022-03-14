@@ -8,19 +8,19 @@ FactoryBot.define do
     status { charge_transaction.status }
 
     trait :approved do
-      status { "approved" }
+      status { 'approved' }
     end
 
     trait :reversed do
-      status { "reversed" }
+      status { 'reversed' }
     end
 
     trait :refunded do
-      status { "refunded" }
+      status { 'refunded' }
     end
 
     trait :error do
-      status { "error" }
+      status { 'error' }
     end
   end
 end

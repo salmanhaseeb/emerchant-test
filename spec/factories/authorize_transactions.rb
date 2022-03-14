@@ -3,24 +3,24 @@ FactoryBot.define do
     amount { Faker::Number.number(digits: 5) }
     customer_email { Faker::Internet.email }
     customer_phone { Faker::Number.number(digits: 11) }
-    type { "AuthorizeTransaction" }
-    status { "approved" }
+    type { 'AuthorizeTransaction' }
+    status { 'approved' }
     merchant
 
     trait :approved do
-      status { "approved" }
+      status { 'approved' }
     end
 
     trait :reversed do
-      status { "reversed" }
+      status { 'reversed' }
     end
 
     trait :refunded do
-      status { "refunded" }
+      status { 'refunded' }
     end
 
     trait :error do
-      status { "error" }
+      status { 'error' }
     end
   end
 end

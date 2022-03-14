@@ -5,23 +5,23 @@ FactoryBot.define do
     amount { authorize_transaction.amount }
     customer_email { authorize_transaction.customer_email }
     customer_phone { authorize_transaction.customer_phone }
-    type { "ReversalTransaction" }
     status { authorize_transaction.status }
+    type { 'ReversalTransaction' }
 
     trait :approved do
-      status { "approved" }
+      status { 'approved' }
     end
 
     trait :reversed do
-      status { "reversed" }
+      status { 'reversed' }
     end
 
     trait :refunded do
-      status { "refunded" }
+      status { 'refunded' }
     end
 
     trait :error do
-      status { "error" }
+      status { 'error' }
     end
   end
 end

@@ -12,69 +12,68 @@ require 'rails_helper'
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
-RSpec.describe "/admins/transactions", type: :request do
-  
+RSpec.describe '/admins/transactions', type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Admins::Transaction. As you add validations to Admins::Transaction, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+  let(:valid_attributes) do
+    skip('Add a hash of attributes valid for your model')
+  end
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  let(:invalid_attributes) do
+    skip('Add a hash of attributes invalid for your model')
+  end
 
-  describe "GET /index" do
-    it "renders a successful response" do
+  describe 'GET /index' do
+    it 'renders a successful response' do
       Admins::Transaction.create! valid_attributes
       get admins_transactions_url
       expect(response).to be_successful
     end
   end
 
-  describe "GET /show" do
-    it "renders a successful response" do
+  describe 'GET /show' do
+    it 'renders a successful response' do
       transaction = Admins::Transaction.create! valid_attributes
       get admins_transaction_url(transaction)
       expect(response).to be_successful
     end
   end
 
-  describe "GET /new" do
-    it "renders a successful response" do
+  describe 'GET /new' do
+    it 'renders a successful response' do
       get new_admins_transaction_url
       expect(response).to be_successful
     end
   end
 
-  describe "GET /edit" do
-    it "renders a successful response" do
+  describe 'GET /edit' do
+    it 'renders a successful response' do
       transaction = Admins::Transaction.create! valid_attributes
       get edit_admins_transaction_url(transaction)
       expect(response).to be_successful
     end
   end
 
-  describe "POST /create" do
-    context "with valid parameters" do
-      it "creates a new Admins::Transaction" do
-        expect {
+  describe 'POST /create' do
+    context 'with valid parameters' do
+      it 'creates a new Admins::Transaction' do
+        expect do
           post admins_transactions_url, params: { admins_transaction: valid_attributes }
-        }.to change(Admins::Transaction, :count).by(1)
+        end.to change(Admins::Transaction, :count).by(1)
       end
 
-      it "redirects to the created admins_transaction" do
+      it 'redirects to the created admins_transaction' do
         post admins_transactions_url, params: { admins_transaction: valid_attributes }
         expect(response).to redirect_to(admins_transaction_url(Admins::Transaction.last))
       end
     end
 
-    context "with invalid parameters" do
-      it "does not create a new Admins::Transaction" do
-        expect {
+    context 'with invalid parameters' do
+      it 'does not create a new Admins::Transaction' do
+        expect do
           post admins_transactions_url, params: { admins_transaction: invalid_attributes }
-        }.to change(Admins::Transaction, :count).by(0)
+        end.to change(Admins::Transaction, :count).by(0)
       end
 
       it "renders a successful response (i.e. to display the 'new' template)" do
@@ -84,20 +83,20 @@ RSpec.describe "/admins/transactions", type: :request do
     end
   end
 
-  describe "PATCH /update" do
-    context "with valid parameters" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
+  describe 'PATCH /update' do
+    context 'with valid parameters' do
+      let(:new_attributes) do
+        skip('Add a hash of attributes valid for your model')
+      end
 
-      it "updates the requested admins_transaction" do
+      it 'updates the requested admins_transaction' do
         transaction = Admins::Transaction.create! valid_attributes
         patch admins_transaction_url(transaction), params: { admins_transaction: new_attributes }
         transaction.reload
-        skip("Add assertions for updated state")
+        skip('Add assertions for updated state')
       end
 
-      it "redirects to the admins_transaction" do
+      it 'redirects to the admins_transaction' do
         transaction = Admins::Transaction.create! valid_attributes
         patch admins_transaction_url(transaction), params: { admins_transaction: new_attributes }
         transaction.reload
@@ -105,7 +104,7 @@ RSpec.describe "/admins/transactions", type: :request do
       end
     end
 
-    context "with invalid parameters" do
+    context 'with invalid parameters' do
       it "renders a successful response (i.e. to display the 'edit' template)" do
         transaction = Admins::Transaction.create! valid_attributes
         patch admins_transaction_url(transaction), params: { admins_transaction: invalid_attributes }
@@ -114,15 +113,15 @@ RSpec.describe "/admins/transactions", type: :request do
     end
   end
 
-  describe "DELETE /destroy" do
-    it "destroys the requested admins_transaction" do
+  describe 'DELETE /destroy' do
+    it 'destroys the requested admins_transaction' do
       transaction = Admins::Transaction.create! valid_attributes
-      expect {
+      expect do
         delete admins_transaction_url(transaction)
-      }.to change(Admins::Transaction, :count).by(-1)
+      end.to change(Admins::Transaction, :count).by(-1)
     end
 
-    it "redirects to the admins_transactions list" do
+    it 'redirects to the admins_transactions list' do
       transaction = Admins::Transaction.create! valid_attributes
       delete admins_transaction_url(transaction)
       expect(response).to redirect_to(admins_transactions_url)
