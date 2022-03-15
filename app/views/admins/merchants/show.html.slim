@@ -1,5 +1,46 @@
-p#notice = notice
+h1.mt-5.text-center Merchant Details
 
-=> link_to 'Edit', edit_merchant_path(@merchant)
-'|
-=< link_to 'Back', merchants_path
+.container.my-5
+  table.table.caption-top
+    tr
+      td Merchant ID
+      td = @merchant.id
+    tr
+      td Name
+      td = @merchant.name
+    tr
+      td Email
+      td = @merchant.email
+    tr
+      td Status
+      td = @merchant.status
+
+h1.text-center.mt-5 Transactions
+
+.container.my-5
+  table.table.caption-top
+    thead
+      tr
+        th scope="col"  ID
+        th scope="col"  Amount
+        th scope="col"  Customer Email
+        th scope="col"  Customer Phone
+        th scope="col"  Status
+        th scope="col"  Merchant ID
+        th scope="col"  Type
+        th
+    tbody
+      - @merchant.transactions.each do |merchant_transaction|
+        tr
+          th scope="row"  = merchant_transaction.id
+          td = merchant_transaction.amount
+          td = merchant_transaction.customer_email
+          td = merchant_transaction.customer_phone
+          td = merchant_transaction.status
+          td = merchant_transaction.merchant_id
+          td = merchant_transaction.type
+          td.d-flex.justify-content-around
+            = link_to "Show", transaction_path(merchant_transaction), class: "btn btn-success text-white"
+
+  = link_to 'Back', merchants_path, class: "btn btn-success text-white"
+  
