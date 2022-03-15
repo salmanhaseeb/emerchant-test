@@ -1,0 +1,39 @@
+h1.mt-5.text-center Transaction Details
+
+.container.my-5
+  table.table.caption-top
+    tr
+      td Transaction ID
+      td = @transaction.id
+    tr
+      td Amount
+      td = @transaction.amount
+    tr
+      td Customer Email
+      td = @transaction.customer_email
+    tr
+      td Customer Phone
+      td = @transaction.customer_phone
+    tr
+      td Status
+      td = @transaction.status
+    tr
+      td Merchant ID
+      td = @transaction.merchant_id
+    tr
+      td Type
+      td = @transaction.type
+    - if @transaction.type == "ChargeTransaction"
+      tr
+        td Authorize Transaction
+        td = link_to "AuthorizeTransaction", transaction_path(@transaction.authorize_transaction) if @transaction.authorize_transaction.present?
+    - elsif @transaction.type == "RefundTransaction"
+      tr
+        td Charge Transaction
+        td = link_to "ChargeTransaction", transaction_path(@transaction.charge_transaction)
+    - elsif @transaction.type == "ReversalTransaction"
+      tr
+        td Authorize Transaction
+        td = link_to "AuthorizeTransaction", transaction_path(@transaction.authorize_transaction) if @transaction.authorize_transaction.present?
+
+  = link_to 'Back', transactions_path, class: "btn btn-success text-white"
