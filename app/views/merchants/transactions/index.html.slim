@@ -1,0 +1,26 @@
+h1.text-center.mt-5 Transactions
+
+.container.my-5
+  table.table.caption-top
+    thead
+      tr
+        th scope="col"  ID
+        th scope="col"  Amount
+        th scope="col"  Customer Email
+        th scope="col"  Customer Phone
+        th scope="col"  Status
+        th scope="col"  Merchant ID
+        th scope="col"  Type
+        th
+    tbody
+      - @transactions.each do |merchants_transaction|
+        tr
+          th scope="row"  = merchants_transaction.id
+          td = merchants_transaction.amount
+          td = merchants_transaction.customer_email
+          td = merchants_transaction.customer_phone
+          td = merchants_transaction.status
+          td = merchants_transaction.merchant_id
+          td = merchants_transaction.type
+          td.d-flex.justify-content-around
+            = link_to "Show", transaction_path(merchants_transaction), class: "btn btn-success text-white"
