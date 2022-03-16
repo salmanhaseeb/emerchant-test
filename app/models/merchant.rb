@@ -31,6 +31,6 @@ class Merchant < ApplicationRecord
   end
 
   def authenticate(user_name, password)
-    api_user_name == user_name && api_password == password ? self : false
+    api_user_name == user_name && api_password == password ? && status == 'active' self : false
   end
 end
