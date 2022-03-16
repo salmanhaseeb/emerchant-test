@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :refund_transaction do
-    charge_transaction
+    charge_transaction { FactoryBot.create(:charge_transaction, :refunded) }
     merchant { charge_transaction.merchant }
     amount { charge_transaction.amount }
     customer_email { charge_transaction.customer_email }

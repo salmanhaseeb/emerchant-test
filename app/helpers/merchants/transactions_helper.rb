@@ -1,0 +1,2 @@
+module Merchants::TransactionsHelper
+end
