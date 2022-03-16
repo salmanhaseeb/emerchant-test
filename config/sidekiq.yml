@@ -1,0 +1,4 @@
+:schedule:
+  delete_transactions:
+    cron: '0 * * * * *'   # Runs once per minute
+    class: DeleteTransactionsWorker
