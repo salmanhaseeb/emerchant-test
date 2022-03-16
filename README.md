@@ -5,20 +5,14 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* rvm install / rvm use 3.0.3
 
-* System dependencies
+* bundle install
 
-* Configuration
+* rails db:create
 
-* Database creation
+* rails db:migrate
 
-* Database initialization
+* bundle exec sidekiq to run background job
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* rails db:seed to register an admin

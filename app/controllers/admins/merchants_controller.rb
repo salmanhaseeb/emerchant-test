@@ -20,21 +20,6 @@ module Admins
     # GET /admins/merchants/1/edit
     def edit; end
 
-    # POST /admins/merchants or /admins/merchants.json
-    def create
-      @merchant = Merchant.new(merchant_params)
-
-      respond_to do |format|
-        if @admins_merchant.save
-          format.html { redirect_to merchant_url(@merchant), notice: 'Merchant was successfully created.' }
-          format.json { render :show, status: :created, location: @merchant }
-        else
-          format.html { render :new, status: :unprocessable_entity }
-          format.json { render json: @merchant.errors, status: :unprocessable_entity }
-        end
-      end
-    end
-
     # PATCH/PUT /admins/merchants/1 or /admins/merchants/1.json
     def update
       respond_to do |format|
