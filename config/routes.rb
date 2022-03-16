@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root 'admins/transactions#index'
+
   scope module: 'admins', path: 'admins' do
     resources :merchants, except: :new
     resources :transactions, only: %i[show index]

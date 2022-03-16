@@ -1,9 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+Steps to follow
 
 * rvm install / rvm use 3.0.3
 
@@ -16,3 +13,13 @@ Things you may want to cover:
 * bundle exec sidekiq to run background job
 
 * rails db:seed to register an admin
+
+* rails s
+
+* admin email: admin@admin.com, password: 123123
+
+* Transactions Post api is implemented with http_basic_authentication
+
+* rake imports:admins to import admins
+
+* rake imports:merchants to import merchants
