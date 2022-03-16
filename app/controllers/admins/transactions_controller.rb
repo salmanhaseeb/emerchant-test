@@ -1,19 +1,23 @@
-class Admins::TransactionsController < ApplicationController
-  before_action :set_transaction, only: %i[show]
-  before_action :authenticate_admin!
+# frozen_string_literal: true
 
-  # GET /admins/transactions or /admins/transactions.json
-  def index
-    @transactions = Transaction.all
-  end
+module Admins
+  class TransactionsController < ApplicationController
+    before_action :set_transaction, only: %i[show]
+    before_action :authenticate_admin!
 
-  # GET /admins/transactions/1 or /admins/transactions/1.json
-  def show; end
+    # GET /admins/transactions or /admins/transactions.json
+    def index
+      @transactions = Transaction.all
+    end
 
-  private
+    # GET /admins/transactions/1 or /admins/transactions/1.json
+    def show; end
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_transaction
-    @transaction = Transaction.find(params[:id])
+    private
+
+    # Use callbacks to share common setup or constraints between actions.
+    def set_transaction
+      @transaction = Transaction.find(params[:id])
+    end
   end
 end

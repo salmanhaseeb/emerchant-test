@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :authorize_transaction do
     amount { Faker::Number.number(digits: 5) }

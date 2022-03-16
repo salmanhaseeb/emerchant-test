@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Merchant < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -15,14 +17,14 @@ class Merchant < ApplicationRecord
   after_create :generate_api_credentials
 
   def check_for_active_transactions
-    if transactions.count > 0
+    if transactions.count.positive?
       errors.add_to_base('Cannot delete merchant while transaction exist')
       false
     end
   end
 
   def total_transaction_sum
-    charge_transactions.where(status: "approved").sum(:amount).to_i
+    charge_transactions.where(status: 'approved').sum(:amount).to_i
   end
 
   def generate_api_credentials

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Transaction < ApplicationRecord
   belongs_to :merchant
   validate :amount_greater_than_zero

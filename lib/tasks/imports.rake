@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'csv'
 
 namespace :imports do
@@ -6,7 +8,7 @@ namespace :imports do
     csv_file_path ||= File.read('admins.csv')
     csv ||= CSV.parse(csv_file_path, col_sep: ',', row_sep: :auto, skip_blanks: true)
     csv.each_with_index do |row, index|
-      Admin.create(email: row[0], password: row[1]) if index > 0
+      Admin.create(email: row[0], password: row[1]) if index.positive?
     end
     puts 'Import Completed....'
   end
@@ -16,7 +18,10 @@ namespace :imports do
     csv_file_path ||= File.read('merchants.csv')
     csv ||= CSV.parse(csv_file_path, col_sep: ',', row_sep: :auto, skip_blanks: true)
     csv.each_with_index do |row, index|
-      Merchant.create(name: row[0], email: row[1], password: row[2], description: row[3], status: row[4]) if index > 0
+      if index.positive?
+        Merchant.create(name: row[0], email: row[1], password: row[2], description: row[3],
+                        status: row[4])
+      end
     end
     puts 'Import Completed....'
   end
